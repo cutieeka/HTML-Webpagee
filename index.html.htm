@@ -1,0 +1,187 @@
+<html>
+<head>
+    <title>Our Little World</title>
+
+    <style>
+        
+
+        body { margin: 0; height: 100vh; overflow: hidden; background-image: url("https://i.pinimg.com/736x/95/a9/86/95a986ff5c2747114f18a24c6b317903.jpg"); background-size: cover; background-position: center; background-repeat: no-repeat; font-family: Tahoma, Arial, sans-serif;} .desktop { height: 100vh; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;} .welcome { color: white; font-size: 24px; text-shadow: 2px 2px 4px black; margin-bottom: 45px;} .computers { display: flex; justify-content: center; align-items: center; gap: 100px;} .computer { text-align: center; cursor: pointer; color: white; text-shadow: 2px 2px 4px black; transition: transform 0.2s;} .computer:hover { transform: scale(1.12);} .computer img { width: 145px; height: 145px; image-rendering: pixelated;} .computer p {font-size: 18px; margin-top: 12px;} .profile { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);  width: 65%; max-height: 80vh; overflow-y: auto; background: #f1f1e8; border: 3px solid white; box-shadow: 5px 5px 15px black;} .titlebar {background: linear-gradient(to right, #0755a5, #68a9ec); color: white; padding: 12px; font-weight: bold;} .content { padding: 25px; color: #222;} .content h2 {color: #15579a;} .close {float: right; cursor: pointer; background: #d9534f; color: white; border: 1px solid white; padding: 3px 9px;} .back {background: #2167ad; color: white; border: none; padding: 10px 18px; cursor: pointer; margin-top: 15px;}
+
+        /* TASKBAR */
+
+        .taskbar {position: fixed; bottom: 0; width: 100%; height: 40px; background: linear-gradient( #3988d5, #1254a0); border-top: 2px solid #8dc4f2;}
+        .start {background: #3b9c39; color: white; font-weight: bold; padding: 9px 20px; border: 1px solid white; border-radius: 0 12px 12px 0;} @media (max-width: 600px) {.computers {gap: 25px;} .computer img {width: 105px; height: 105px; }.welcome {font-size: 18px;} .profile { width: 90%;} }
+    </style>
+</head>
+
+<body>
+
+    <div class="desktop" id="desktop">
+
+        <div class="welcome">
+            Welcome to Our Little World!
+        </div>
+
+        <div class="computers">
+
+            <div class="computer"
+                 onclick="openProfile('erica')">
+
+                <img src="C:\Users\Ryzen\Downloads\c7452e5da9801d0f828f096b653442a5-removebg-preview.png">
+
+                <p>Erica's computer</p>
+
+            </div>
+
+            <div class="computer"
+                 onclick="openProfile('max')">
+
+                <img src="C:\Users\Ryzen\Downloads\c7452e5da9801d0f828f096b653442a5-removebg-preview.png">
+
+                <p>Max's Computer</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="profile" id="erica">
+
+        <div class="titlebar">
+           Erica's Profile
+
+            <button class="close"
+                    onclick="closeProfile('erica')">
+                X
+            </button>
+        </div>
+
+        <div class="content">
+
+            <h2>Hi! Welcome to my personal page!</h2>
+			
+			<p>
+               Hey there! I’m Erica. I’m a curious daydreamer who spends way too much time reading webtoons, editing videos, and designing virtual spaces. My all-time favorite things include iced coffee, cute stationery, and warm aesthetic lighting.
+            </p>
+
+            <h2>ABOUT ME</h2>
+
+            <p>
+                Name: Erica Joy A. Esguerra
+				<br>
+				Nickname: Ica/Erica
+				<br>
+				Age: 14 years old
+				<br>
+				Birthday: June 30, 2012
+                
+            </p>
+
+
+           
+
+            <h2>MY PERSONALITY</h2>
+
+            <p>
+               I tend to be a bit of a homebody, so my ideal weekend involves cozying up with a good show or working on a fun art project.
+            </p>
+
+            <h2>MY HOBBIES</h2>
+
+            <p>
+                In my free time, I love unwinding by playing video games, listening to K-pop, and binge-watching Asian dramas.
+            </p>
+
+            <h2>MY FAVORITES</h2>
+
+            <p>
+                A few of my favorite things include listening to K-pop, binge-watching good dramas, and getting lost in a new webtoon.
+            </p>
+
+            <h2>FUN FACTS</h2>
+
+            <p>
+                A fun fact about me is that I can memorize song lyrics after listening to a track just two or three times.
+            </p>
+
+            <h2>PERSONAL MOTTO</h2>
+            <p>
+			    I always remind myself of my favorite motto: 'Everything happens for a reason, and better days are always on the way.'
+			</p>
+			
+			
+			
+			
+			
+			
+
+            <button class="back"
+                    onclick="closeProfile('erica')">
+                Back to Desktop
+            </button>
+
+        </div>
+    </div>
+
+    <div class="profile" id="max">
+
+        <div class="titlebar">
+            Max's Profile
+
+            <button class="close"
+                    onclick="closeProfile('max')">
+                X
+            </button>
+        </div>
+
+        <div class="content">
+
+            <h2>ABOUT ME</h2>
+
+            <p>
+                Hi! My name is .
+                Welcome to my personal page!
+            </p>
+
+            <h2>MY PERSONALITY</h2>
+
+            <p>
+                [personality here]
+            </p>
+
+            <h2>MY HOBBIES</h2>
+
+            <p>
+                [hobbies here.]
+            </p>
+
+            <h2>MY FAVORITES</h2>
+
+            <p>
+                [favorite things here.]
+            </p>
+
+            <h2>FUN FACTS</h2>
+
+            <p>
+                [interesting facts about .]
+            </p>
+
+            <button class="back"
+                    onclick="closeProfile('max')">
+                Back to Desktop
+            </button>
+
+        </div>
+    </div>
+
+    <div class="taskbar">
+        <button class="start">START</button>
+    </div>
+	
+
+
+</body>
+</html>
