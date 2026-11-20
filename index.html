@@ -3,51 +3,60 @@
     <title>Our Little World</title>
 
     <style>
-        
-
-        body { margin: 0; height: 100vh; overflow: hidden; background-image: url("https://i.pinimg.com/736x/95/a9/86/95a986ff5c2747114f18a24c6b317903.jpg"); background-size: cover; background-position: center; background-repeat: no-repeat; font-family: Tahoma, Arial, sans-serif;} .desktop { height: 100vh; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;} .welcome { color: white; font-size: 24px; text-shadow: 2px 2px 4px black; margin-bottom: 45px;} .computers { display: flex; justify-content: center; align-items: center; gap: 100px;} .computer { text-align: center; cursor: pointer; color: white; text-shadow: 2px 2px 4px black; transition: transform 0.2s;} .computer:hover { transform: scale(1.12);} .computer img { width: 145px; height: 145px; image-rendering: pixelated;} .computer p {font-size: 18px; margin-top: 12px;} .profile { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);  width: 65%; max-height: 80vh; overflow-y: auto; background: #f1f1e8; border: 3px solid white; box-shadow: 5px 5px 15px black;} .titlebar {background: linear-gradient(to right, #0755a5, #68a9ec); color: white; padding: 12px; font-weight: bold;} .content { padding: 25px; color: #222;} .content h2 {color: #15579a;} .close {float: right; cursor: pointer; background: #d9534f; color: white; border: 1px solid white; padding: 3px 9px;} .back {background: #2167ad; color: white; border: none; padding: 10px 18px; cursor: pointer; margin-top: 15px;}
-
-        /* TASKBAR */
-
-        .taskbar {position: fixed; bottom: 0; width: 100%; height: 40px; background: linear-gradient( #3988d5, #1254a0); border-top: 2px solid #8dc4f2;}
-        .start {background: #3b9c39; color: white; font-weight: bold; padding: 9px 20px; border: 1px solid white; border-radius: 0 12px 12px 0;} @media (max-width: 600px) {.computers {gap: 25px;} .computer img {width: 105px; height: 105px; }.welcome {font-size: 18px;} .profile { width: 90%;} }
-    </style>
+       
+        body { margin: 0; height: 100vh; background-image: url("https://i.pinimg.com/736x/95/a9/86/95a986ff5c2747114f18a24c6b317903.jpg"); background-size: cover; background-position: center; background-repeat: no-repeat; font-family: Tahoma, Arial, sans-serif;} .desktop { position: relative; z-index: 1; height: 100vh; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;} .welcome { color: white; font-size: 24px; text-shadow: 2px 2px 4px black; margin-bottom: 45px;} .computers { display: flex; justify-content: center; align-items: center; gap: 100px;} .computer { position: relative; z-index: 2; text-align: center; cursor: pointer; color: white;text-shadow: 2px 2px 4px black; transition: transform 0.2s;} .computer:hover { transform: scale(1.12);} .computer img { width: 145px; height: 145px; image-rendering: pixelated;} .computer p {font-size: 18px; margin-top: 12px;} .profile { z-index: 20; display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);  width: 65%; max-height: 80vh; overflow-y: auto; background: #f1f1e8; border: 3px solid white; box-shadow: 5px 5px 15px black;} .titlebar {background: linear-gradient(to right, #0755a5, #68a9ec); color: white; padding: 12px; font-weight: bold;} .content { padding: 25px; color: #222;} .content h2 {color: #15579a;} .close {float: right; cursor: pointer; background: #d9534f; color: white; border: 1px solid white; padding: 3px 9px;} .back {background: #2167ad; color: white; border: none; padding: 10px 18px; cursor: pointer; margin-top: 15px;}/* FILE EXPLORER */.folder-grid {display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center;} .folder { padding: 15px 5px; cursor: pointer; border: 1px solid transparent; transition: 0.2s;} .folder:hover { background: #dcecff;border: 1px solid #75a9e5;}.folder-icon { font-size: 55px;} .folder p { font-size: 13px; margin-top: 8px; color: #222;}
+ /* PROFILE CONTENT */
+.profile-heading { text-align: center; color: #0755a5;} .profile-photo { width: 150px; height: 150px; object-fit: cover; border: 5px solid white; box-shadow: 0 2px 8px #888; border-radius: 50%; display: block; margin: 15px auto;} .info-box {background: white; border: 1px solid #b7c9df; padding: 15px; margin: 12px 0; border-radius: 5px;} .info-box h3 { color: #0755a5; margin-top: 0;} .info-box p {line-height: 1.6;} .info-box li { margin: 7px 0;} .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;} .gallery img { width: 100%; height: 140px; object-fit: cover; border: 4px solid white;  box-shadow: 0 1px 5px #888;} .gallery figure {margin: 0; text-align: center;} .gallery figcaption { font-size: 12px; margin-top: 5px;} .back-button { background: #0755a5; color: white; border: none; padding: 9px 16px; cursor: pointer; border-radius: 3px; margin-bottom: 15px; }.back-button:hover {background: #287ed0;}
+/* SMALL SCREENS */
+@media screen and (max-width: 600px) { .window { width: 95%; max-height: 82vh;} .folder-grid { grid-template-columns: repeat(2, 1fr); }.computers { gap: 30px; margin-top: 60px; }.gallery { grid-template-columns: repeat(2, 1fr);}}
+/* TASKBAR */
+.taskbar {position: fixed; left: 0; bottom: 0; width: 100%; height: 40px; background: linear-gradient(#3988d5, #1254a0); border-top: 2px solid #8dc4f2; z-index: 100;}
+/* ABOUT ME AND FILES */
+.about-section { display: block;} .file-heading { color: #15579a; border-bottom: 2px solid #b7c9df; padding-bottom: 8px; margin-top: 30px;} .folder-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; text-align: center;} .folder { padding: 15px 5px; cursor: pointer; border: 1px solid transparent; transition: 0.2s; border-radius: 5px;} .folder:hover { background: #dcecff; border: 1px solid #75a9e5; transform: scale(1.05);} .folder-icon { font-size: 48px;}.folder p { font-size: 13px; margin-top: 8px; color: #222;} .section-page { display: none;} .section-page h2 { color: #15579a;} .section-page img { max-width: 100%;} @media screen and (max-width: 600px) {.folder-grid {grid-template-columns: repeat(2, 1fr);} } .start {background: #3b9c39; color: white; font-weight: bold; padding: 9px 20px; border: 1px solid white; border-radius: 0 12px 12px 0;} @media (max-width: 600px) {.computers {gap: 25px;} .computer img {width: 105px; height: 105px; }.welcome {font-size: 18px;} .profile { z-index: 20; width: 90%;} } .artist-grid {display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; text-align: center; margin-top: 20px;} .artist img { width: 130px; height: 150px; object-fit: cover; border: 4px solid white; box-shadow: 0 2px 6px #888; border-radius: 8px;} .artist p { font-weight: bold; color: #15579a; margin-top: 8px;} @media screen and (max-width: 600px) { .artist-grid { grid-template-columns: repeat(2, 1fr);} }
+  </style>
 </head>
-
 <body>
+ <!-- DESKTOP -->
 
-    <div class="desktop" id="desktop">
+ <div class="desktop" id="desktop">
 
-        <div class="welcome">
-            Welcome to Our Little World!
-        </div>
+ <h1 class="desktop-title" style="color: white; text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); margin-top: -20px; margin-bottom: 5px; font-size: 60px;">
+    OUR LITTLE WORLD
+  </h1>
 
+  <p class="desktop-subtitle" style="color: white; text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); font-size: 24px;">
+    Welcome to our personal computers!
+  </p>
+
+        <marquee behavior="alternate"
+         scrollamount="5"
+         style="color: white; text-shadow: 1px 1px 4px black; font-size: 20px;">
+
+    Welcome! Explore our little world and get to know us!
+
+        </marquee>
+		
         <div class="computers">
 
-            <div class="computer"
-                 onclick="openProfile('erica')">
-
-                <img src="C:\Users\Ryzen\Downloads\c7452e5da9801d0f828f096b653442a5-removebg-preview.png">
-
-                <p>Erica's computer</p>
-
-            </div>
-
-            <div class="computer"
-                 onclick="openProfile('max')">
-
-                <img src="C:\Users\Ryzen\Downloads\c7452e5da9801d0f828f096b653442a5-removebg-preview.png">
-
-                <p>Max's Computer</p>
-
-            </div>
-
-        </div>
-
+    <!-- ERICA'S COMPUTER -->
+    <div class="computer"
+         onclick="openProfile('erica')">
+        <img src="c7452e5da9801d0f828f096b653442a5-removebg-preview.png">
+        <p>Erica's computer</p>
     </div>
 
+    <!-- MAX'S COMPUTER -->
+    <div class="computer"
+         onclick="openProfile('max')">
+        <img src="c7452e5da9801d0f828f096b653442a5-removebg-preview.png">
+        <p>Max's computer</p>
+    </div>
 
-    <div class="profile" id="erica">
+  </div>
+
+</div> <!-- CLOSE DESKTOP -->
+
+<div class="profile" id="erica">
 
         <div class="titlebar">
            Erica's Profile
@@ -60,75 +69,109 @@
 
         <div class="content">
 
-            <h2>Hi! Welcome to my personal page!</h2>
-			
-			<p>
-               Hey there! I’m Erica. I’m a curious daydreamer who spends way too much time reading webtoons, editing videos, and designing virtual spaces. My all-time favorite things include iced coffee, cute stationery, and warm aesthetic lighting.
-            </p>
+    <!-- ABOUT ME HOME PAGE -->
 
-            <h2>ABOUT ME</h2>
+    <div id="erica-home" class="about-section">
 
-            <p>
-                Name: Erica Joy A. Esguerra
-				<br>
-				Nickname: Ica/Erica
-				<br>
-				Age: 14 years old
-				<br>
-				Birthday: June 30, 2012
-                
-            </p>
+        <h2>Hi! Welcome to my personal page!</h2>
 
+        <p>
+            Hey there! I'm Erica. I'm a curious daydreamer who
+            spends way too much time reading webtoons, editing
+            videos, and designing virtual spaces. My all-time
+            favorite things include iced coffee, cute stationery,
+            and warm aesthetic lighting.
+        </p>
 
-           
+        <img src="733a514c-e1b7-469d-9275-24a6d41c7df2.jfif"
+             class="profile-photo"
+             alt="Erica's profile picture">
 
-            <h2>MY PERSONALITY</h2>
+        <h2>ABOUT ME</h2>
 
-            <p>
-               I tend to be a bit of a homebody, so my ideal weekend involves cozying up with a good show or working on a fun art project.
-            </p>
+        <p>
+            Name: Erica Joy A. Esguerra
+            <br>
+            Nickname: Ica/Erica
+            <br>
+            Age: 14 years old
+            <br>
+            Birthday: June 30, 2012
+        </p>
 
-            <h2>MY HOBBIES</h2>
+        <h2>PERSONAL MOTTO</h2>
 
-            <p>
-                In my free time, I love unwinding by playing video games, listening to K-pop, and binge-watching Asian dramas.
-            </p>
+        <p>
+            "Everything happens for a reason, and better days
+            are always on the way."
+        </p>
 
-            <h2>MY FAVORITES</h2>
+        <hr>
 
-            <p>
-                A few of my favorite things include listening to K-pop, binge-watching good dramas, and getting lost in a new webtoon.
-            </p>
+        <h2 class="file-heading">📁 MY FILES</h2>
 
-            <h2>FUN FACTS</h2>
+        <p>Click a folder to explore more about me!</p>
 
-            <p>
-                A fun fact about me is that I can memorize song lyrics after listening to a track just two or three times.
-            </p>
+        <div class="folder-grid">
 
-            <h2>PERSONAL MOTTO</h2>
-            <p>
-			    I always remind myself of my favorite motto: 'Everything happens for a reason, and better days are always on the way.'
-			</p>
-			
-			
-			
-			
-			
-			
+            <div class="folder"
+                 onclick="openFolder('erica','hobbies')">
+                <div class="folder-icon">🎨</div>
+                <p>Hobbies & Interests</p>
+            </div>
 
-            <button class="back"
-                    onclick="closeProfile('erica')">
-                Back to Desktop
-            </button>
+            <div class="folder"
+                 onclick="openFolder('erica','favorites')">
+                <div class="folder-icon">⭐</div>
+                <p>My Favorites</p>
+            </div>
 
+            <div class="folder"
+                 onclick="openFolder('erica','family')">
+                <div class="folder-icon">👨‍👩‍👧</div>
+                <p>Family & Friends</p>
+            </div>
+
+            <div class="folder"
+                 onclick="openFolder('erica','dreams')">
+                <div class="folder-icon">🌟</div>
+                <p>Dreams & Goals</p>
+            </div>
+
+            <div class="folder"
+                 onclick="openFolder('erica','gallery')">
+                <div class="folder-icon">🖼️</div>
+                <p>Photo Gallery</p>
+            </div>
         </div>
     </div>
+
+    <!-- FOLDER CONTENTS APPEAR HERE -->
+
+    <div id="erica-section" class="section-page">
+
+        <button class="back-button"
+                onclick="backToAbout('erica')">
+            ← Back to About Me
+        </button>
+
+        <div id="erica-section-content"></div>
+
+    </div>
+
+       <button class="back"
+            onclick="closeProfile('erica')">
+        Back to Desktop
+    </button>
+
+</div> <!-- CLOSE CONTENT -->
+
+</div> <!-- CLOSE ERICA'S PROFILE -->
 
     <div class="profile" id="max">
 
         <div class="titlebar">
-            Max's Profile
+           Max's Profile
 
             <button class="close"
                     onclick="closeProfile('max')">
@@ -138,50 +181,514 @@
 
         <div class="content">
 
-            <h2>ABOUT ME</h2>
+    <!-- ABOUT ME HOME PAGE -->
 
-            <p>
-                Hi! My name is .
-                Welcome to my personal page!
-            </p>
+    <div id="max-home" class="about-section">
 
-            <h2>MY PERSONALITY</h2>
+        <h2>Hi! Welcome to my personal page!</h2>
 
-            <p>
-                [personality here]
-            </p>
+        <p>
+            Short Intro here
+        </p>
 
-            <h2>MY HOBBIES</h2>
+        <img src="Your pic"
+             class="profile-photo"
+             alt="Max's profile picture">
 
-            <p>
-                [hobbies here.]
-            </p>
+        <h2>ABOUT ME</h2>
 
-            <h2>MY FAVORITES</h2>
+        <p>
+            Name:
+            <br>
+            Nickname:
+            <br>
+            Age:
+            <br>
+            Birthday:
+        </p>
 
-            <p>
-                [favorite things here.]
-            </p>
+        <h2>PERSONAL MOTTO</h2>
 
-            <h2>FUN FACTS</h2>
+        <p>
+            Your motto here
+        </p>
 
-            <p>
-                [interesting facts about .]
-            </p>
+        <hr>
 
-            <button class="back"
-                    onclick="closeProfile('max')">
-                Back to Desktop
-            </button>
+        <h2 class="file-heading">📁 MY FILES</h2>
+
+        <p>Click a folder to explore more about me!</p>
+
+        <div class="folder-grid">
+
+            <div class="folder"
+                 onclick="openFolder('max','hobbies')">
+                <div class="folder-icon">🎨</div>
+                <p>Hobbies & Interests</p>
+            </div>
+
+            <div class="folder"
+                 onclick="openFolder('max','favorites')">
+                <div class="folder-icon">⭐</div>
+                <p>My Favorites</p>
+            </div>
+
+            <div class="folder"
+                 onclick="openFolder('max','family')">
+                <div class="folder-icon">👨‍👩‍👧</div>
+                <p>Family & Friends</p>
+            </div>
+
+            <div class="folder"
+                 onclick="openFolder('max','dreams')">
+                <div class="folder-icon">🌟</div>
+                <p>Dreams & Goals</p>
+            </div>
+
+            <div class="folder"
+                 onclick="openFolder('max','gallery')">
+                <div class="folder-icon">🖼️</div>
+                <p>Photo Gallery</p>
+            </div>
+
+           
 
         </div>
+
     </div>
 
-    <div class="taskbar">
+
+    <!-- FOLDER CONTENTS APPEAR HERE -->
+
+    <div id="max-section" class="section-page">
+
+        <button class="back-button"
+                onclick="backToAbout('max')">
+            ← Back to About Me
+        </button>
+
+        <div id="max-section-content"></div>
+
+    </div>
+
+        <button class="back"
+            onclick="closeProfile('max')">
+        Back to Desktop
+    </button>
+
+</div> <!-- CLOSE CONTENT -->
+
+</div> <!-- CLOSE MAX'S PROFILE -->
+
+<div class="taskbar">
         <button class="start">START</button>
     </div>
+<script>
+function openProfile(person) {
+
+    // Hide both profiles first
+    document.getElementById("erica").style.display = "none";
+    document.getElementById("max").style.display = "none";
+
+    // Show only the selected profile
+    document.getElementById(person).style.display = "block";
+
+    // Show its About Me page
+    document.getElementById(person + "-home").style.display = "block";
+    document.getElementById(person + "-section").style.display = "none";
+
+}
+
+function closeProfile(person) {
+
+    document.getElementById(person).style.display = "none";
+
+}
+
+function openFolder(person, folder) {
+
+    let content = "";
+
+    
+if (person === "erica" && folder === "hobbies") {
+    content = `
+        <h2>MY HOBBIES & INTERESTS</h2>
+
+        <div class="info-box">
+            <h3>🎨 Hobbies & Activities</h3>
+            <p>
+                I enjoy expressing my creativity through digital editing
+                and experimenting with different designs. I also love
+                baking and cooking pastries, especially when I get to
+                try something new. During my free time, I enjoy playing
+                games and exploring different interests.
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h3>🏸 Sports & Physical Activities</h3>
+            <p>
+                I don't really consider myself a sporty person, but
+                I do majorette and enjoy playing badminton. Although
+                I'm not the best at badminton, I still love playing
+                it and having fun.
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h3>🎮 Games I Play</h3>
+            <p>
+                I enjoy playing both online and board games.
+                Some of the online games I play are The Sims 4
+                and Roblox. When it comes to board games, I enjoy
+                playing Monopoly and UNO.
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h3>🎧 Music & My Favorite Songs</h3>
+            <p>
+                I listen to almost every genre of music, but I
+                especially enjoy Soul, Pop, and R&B. Some songs
+                I particularly love are "All I Need to Hear,"
+                "Legendary Lovers," "White Keys," and "The Cure."
+            </p>
+            <p>
+                I appreciate these songs because each has its own
+                unique vibe, catchy beats, and powerful vocals.
+                Most of all, I love how their lyrics carry meaningful
+                messages that make every song more special.
+            </p>
+        </div>
 	
 
+        <div class="info-box">
+            <h3>🎬 Movies & Cinema</h3>
+            <p>
+                I love watching movies at the cinema, especially
+                whenever an exciting new movie premieres. I also
+                look forward to the annual MMFF because it's a
+                great opportunity to discover and enjoy Filipino films.
+            </p>
+            <p>
+                Some of my favorite movies include Spider-Man:
+                Brand New Day, while my all-time favorite Filipino
+                movies are Sons of Nanay Sabel and Seven Sundays.
+            </p>
+        </div>
 
+        <div class="info-box">
+            <h3>✨ My Talents</h3>
+            <p>
+                One thing I consider a talent is my ability to
+                recognize and learn the rhythm or beat of a song
+                after listening to it just a few times. I can also
+                memorize song lyrics quite quickly, sometimes after
+                only a few listens!
+            </p>
+        </div>
+
+     
+<div class="info-box">
+    <h3>🌟 My Favorite Artists</h3>
+
+    <div class="artist-grid">
+
+        <div class="artist">
+            <img src="_seventeen_.jfif" alt="SEVENTEEN">
+            <p>SEVENTEEN</p>
+        </div>
+
+        <div class="artist">
+            <img src="Olivia%20Rodrigo.jfif" alt="Olivia Rodrigo">
+            <p>Olivia Rodrigo</p>
+        </div>
+
+        <div class="artist">
+            <img src="download%20(15).jfif" alt="CORTIS">
+            <p>CORTIS</p>
+        </div>
+
+        <div class="artist">
+            <img src="malcolm%20todd.jfif" alt="Malcolm Todd">
+            <p>Malcolm Todd</p>
+        </div>
+
+    </div>
+</div>
+
+            <img src="mochiii.jfif" width="180" alt="Mochiii">
+			<img src="sims 4.jfif" width="180" alt="Sims 4">
+			<img src="GOODLUCK.jpg" width="180" alt="GOODLUCK">
+			<img src="download (16).jfif" width="180" alt="Download">
+			<img src="RobloxScreenShot20260427_140358081.png" width="180" alt="Roblox">
+			<img src="bad-min-ton🏸.jfif" width="180" alt="Badminton">
+			
+            
+        `;
+    }
+	
+else if (person === "max" && folder === "hobbies") {
+    content = `
+       
+        <h2>MY HOBBIES & INTERESTS</h2>
+
+        <div class="info-box">
+            <h3>🎨 Hobbies & Activities</h3>
+            <p>
+                here.
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h3>🏸 Sports & Physical Activities</h3>
+            <p>
+                here.
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h3>🎮 Games I Play</h3>
+            <p>
+                here.
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h3>🎧 Music & My Favorite Songs</h3>
+            <p>
+                here.
+            </p>
+            <p>
+                dito rin.
+            </p>
+        </div>
+	
+
+        <div class="info-box">
+            <h3>🎬 Movies & Cinema</h3>
+            <p>
+                here.
+            </p>
+            <p>
+               dito rin.
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h3>✨ My Talents</h3>
+            <p>
+                here.
+            </p>
+        </div>
+
+     
+<div class="info-box">
+    <h3>🌟 My Favorite Artists</h3>
+
+    <div class="artist-grid">
+
+        <div class="artist">
+            <img src="_seventeen_.jfif" alt="SEVENTEEN">
+            <p>example lang</p>
+        </div>
+
+        <div class="artist">
+            <img src="Olivia%20Rodrigo.jfif" alt="Olivia Rodrigo">
+            <p>example</p>
+        </div>
+
+        <div class="artist">
+            <img src="download%20(15).jfif" alt="CORTIS">
+            <p>example</p>
+        </div>
+
+        <div class="artist">
+            <img src="malcolm%20todd.jfif" alt="Malcolm Todd">
+            <p>example</p>
+        </div>
+    </div>
+</div>
+            <img src="mochiii.jfif" width="180" alt="Mochiii">
+			<img src="sims 4.jfif" width="180" alt="Sims 4">
+			<img src="GOODLUCK.jpg" width="180" alt="GOODLUCK">
+			<img src="download (16).jfif" width="180" alt="Download">
+			<img src="RobloxScreenShot20260427_140358081.png" width="180" alt="Roblox">
+			<img src="bad-min-ton🏸.jfif" width="180" alt="Badminton">
+			
+        `;
+    }
+
+    else if (person === "erica" && folder === "favorites") {
+        content = `
+            <h2>MY FAVORITES</h2>
+            <div class="info-box">
+                <h3>My Top 5 Favorite Things</h3>
+                <ol>
+                    <li>Favorite Food: Potato Corner</li>
+                    <li>Favorite Colors: Pink and red</li>
+                    <li>Favorite Subjects: ICT and Araling Panlipunan</li>
+                    <li>Favorite Book: The Naturals</li>
+                    <li>Favorite Flower: Hibiscus</li>
+                </ol>
+                <h3>Favorite Quotation</h3>
+                <p>"It's the first time that we're living this life, so how can you be good at it from the beginning?" — Hoshi</p>
+            </div>
+        `;
+    }
+	
+	else if (person === "max" && folder === "favorites") {
+        content = `
+            <h2>MY FAVORITES</h2>
+            <div class="info-box">
+                <h3>My Top 5 Favorite Things</h3>
+                <ol>
+                    <li>Favorite Food: ______</li>
+                    <li>Favorite Color: ______</li>
+                    <li>Favorite Subject: ______</li>
+                    <li>Favorite Book: ______</li>
+                    <li>Favorite Flower: ______</li>
+                </ol>
+                <h3>Favorite Quotation</h3>
+                <p>Write your favorite quotation here.</p>
+            </div>
+        `;
+    }
+
+    else if (person === "erica" && folder === "family") {
+        content = `
+            <h2>FAMILY, FRIENDS & SCHOOL LIFE</h2>
+            <div class="info-box">
+                <h3>My Family</h3>
+                <p>Write short descriptions of your family members.</p>
+                <img src="${person}-family.jpg" width="220">
+            </div>
+            <div class="info-box">
+                <h3>My Friends</h3>
+                <p>Write about your friends here.</p>
+                <img src="${person}-friends.jpg" width="220">
+            </div>
+            <div class="info-box">
+                <h3>My School Life</h3>
+                <p>Share memorable school experiences and achievements.</p>
+                <img src="${person}-school.jpg" width="220">
+            </div>
+        `;
+    }
+	
+else if (person === "max" && folder === "family") {
+        content = `
+            <h2>FAMILY, FRIENDS & SCHOOL LIFE</h2>
+            <div class="info-box">
+                <h3>My Family</h3>
+                <p>Write short descriptions of your family members.</p>
+                <img src="${person}-family.jpg" width="220">
+            </div>
+            <div class="info-box">
+                <h3>My Friends</h3>
+                <p>Write about your friends here.</p>
+                <img src="${person}-friends.jpg" width="220">
+            </div>
+            <div class="info-box">
+                <h3>My School Life</h3>
+                <p>Share memorable school experiences and achievements.</p>
+                <img src="${person}-school.jpg" width="220">
+            </div>
+        `;
+    }
+	
+    else if (person === "erica" && folder === "dreams") {
+        content = `
+            <h2>MY DREAMS & GOALS</h2>
+            <div class="info-box">
+                <h3>Dream Career</h3>
+                <p>Write about your dream job or future career.</p>
+                <h3>Short-Term Goals</h3>
+                <p>Write your short-term goals.</p>
+                <h3>Long-Term Goals</h3>
+                <p>Write your long-term goals.</p>
+                <h3>Skills I Want to Develop</h3>
+                <p>Write about the skills you want to learn.</p>
+                <h3>Message to My Future Self</h3>
+                <p>Write an inspirational message to your future self.</p>
+            </div>
+        `;
+    }
+	
+	else if (person === "max" && folder === "dreams") {
+        content = `
+            <h2>MY DREAMS & GOALS</h2>
+            <div class="info-box">
+                <h3>Dream Career</h3>
+                <p>Write about your dream job or future career.</p>
+                <h3>Short-Term Goals</h3>
+                <p>Write your short-term goals.</p>
+                <h3>Long-Term Goals</h3>
+                <p>Write your long-term goals.</p>
+                <h3>Skills I Want to Develop</h3>
+                <p>Write about the skills you want to learn.</p>
+                <h3>Message to My Future Self</h3>
+                <p>Write an inspirational message to your future self.</p>
+            </div>
+        `;
+    }
+
+    else if (person === "erica" && folder === "gallery") {
+        content = `
+            <h2>MY PHOTO GALLERY</h2>
+            <div class="gallery">
+                <figure>
+                    <img src="${person}-photo1.jpg">
+                    <figcaption>My favorite memory</figcaption>
+                </figure>
+                <figure>
+                    <img src="${person}-photo2.jpg">
+                    <figcaption>A special moment</figcaption>
+                </figure>
+                <figure>
+                    <img src="${person}-photo3.jpg">
+                    <figcaption>A happy memory</figcaption>
+                </figure>
+            </div>
+        `;
+    }
+
+else if (person === "max" && folder === "gallery") {
+        content = `
+            <h2>MY PHOTO GALLERY</h2>
+            <div class="gallery">
+                <figure>
+                    <img src="${person}-photo1.jpg">
+                    <figcaption>My favorite memory</figcaption>
+                </figure>
+                <figure>
+                    <img src="${person}-photo2.jpg">
+                    <figcaption>A special moment</figcaption>
+                </figure>
+                <figure>
+                    <img src="${person}-photo3.jpg">
+                    <figcaption>A happy memory</figcaption>
+                </figure>
+            </div>
+        `;
+    }
+
+    document.getElementById(person + "-section-content").innerHTML = content;
+
+    document.getElementById(person + "-home").style.display = "none";
+
+    document.getElementById(person + "-section").style.display = "block";
+
+}
+
+function backToAbout(person) {
+
+    document.getElementById(person + "-section").style.display = "none";
+
+    document.getElementById(person + "-home").style.display = "block";
+
+}
+
+    </script>
 </body>
 </html>
