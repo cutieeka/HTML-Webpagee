@@ -15,19 +15,6 @@
 .about-section { display: block;} .file-heading { color: #15579a; border-bottom: 2px solid #b7c9df; padding-bottom: 8px; margin-top: 30px;} .folder-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; text-align: center;} .folder { padding: 15px 5px; cursor: pointer; border: 1px solid transparent; transition: 0.2s; border-radius: 5px;} .folder:hover { background: #dcecff; border: 1px solid #75a9e5; transform: scale(1.05);} .folder-icon { font-size: 48px;}.folder p { font-size: 13px; margin-top: 8px; color: #222;} .section-page { display: none;} .section-page h2 { color: #15579a;} .section-page img { max-width: 100%;} @media screen and (max-width: 600px) {.folder-grid {grid-template-columns: repeat(2, 1fr);} } .start {background: #3b9c39; color: white; font-weight: bold; padding: 9px 20px; border: 1px solid white; border-radius: 0 12px 12px 0;} @media (max-width: 600px) {.computers {gap: 25px;} .computer img {width: 105px; height: 105px; }.welcome {font-size: 18px;} .profile { z-index: 20; width: 90%;} } .artist-grid {display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; text-align: center; margin-top: 20px;} .artist img { width: 130px; height: 150px; object-fit: cover; border: 4px solid white; box-shadow: 0 2px 6px #888; border-radius: 8px;} .artist p { font-weight: bold; color: #15579a; margin-top: 8px;} @media screen and (max-width: 600px) { .artist-grid { grid-template-columns: repeat(2, 1fr);} }
   </style>
 </head>
-
-<script>
-    function openProfile(id) {
-        document.getElementById('erica').style.display = 'none';
-        document.getElementById('max').style.display = 'none';
-        document.getElementById(id).style.display = 'block';
-    }
-
-    function closeProfile(id) {
-        document.getElementById(id).style.display = 'none';
-    }
-</script>	
-	
 <body>
  <!-- DESKTOP -->
 
@@ -54,14 +41,14 @@
     <!-- ERICA'S COMPUTER -->
     <div class="computer"
          onclick="openProfile('erica')">
-        <img src="c7452e5da9801d0f828f096b653442a5-removebg-preview.png">
+        <img src="images/c7452e5da9801d0f828f096b653442a5-removebg-preview.png">
         <p>Erica's computer</p>
     </div>
 
     <!-- MAX'S COMPUTER -->
     <div class="computer"
          onclick="openProfile('max')">
-        <img src="c7452e5da9801d0f828f096b653442a5-removebg-preview.png">
+        <img src="images/c7452e5da9801d0f828f096b653442a5-removebg-preview.png">
         <p>Max's computer</p>
     </div>
 
@@ -96,7 +83,7 @@
             and warm aesthetic lighting.
         </p>
 
-        <img src="733a514c-e1b7-469d-9275-24a6d41c7df2.jfif"
+        <img src="images/733a514c-e1b7-469d-9275-24a6d41c7df2.jfif"
              class="profile-photo"
              alt="Erica's profile picture">
 
@@ -321,7 +308,7 @@ function closeProfile(person) {
 function openFolder(person, folder) {
 
     let content = "";
-	</script>
+
     
 if (person === "erica" && folder === "hobbies") {
     content = `
@@ -408,34 +395,34 @@ if (person === "erica" && folder === "hobbies") {
     <div class="artist-grid">
 
         <div class="artist">
-            <img src="_seventeen_.jfif" alt="SEVENTEEN">
+            <img src="images/_seventeen_.jfif" alt="SEVENTEEN">
             <p>SEVENTEEN</p>
         </div>
 
         <div class="artist">
-            <img src="Olivia%20Rodrigo.jfif" alt="Olivia Rodrigo">
+            <img src="images/Olivia%20Rodrigo.jfif" alt="Olivia Rodrigo">
             <p>Olivia Rodrigo</p>
         </div>
 
         <div class="artist">
-            <img src="download%20(15).jfif" alt="CORTIS">
+            <img src="images/download%20(15).jfif" alt="CORTIS">
             <p>CORTIS</p>
         </div>
 
         <div class="artist">
-            <img src="malcolm%20todd.jfif" alt="Malcolm Todd">
+            <img src="images/malcolm%20todd.jfif" alt="Malcolm Todd">
             <p>Malcolm Todd</p>
         </div>
 
     </div>
 </div>
 
-            <img src="mochiii.jfif" width="180" alt="Mochiii">
-			<img src="sims 4.jfif" width="180" alt="Sims 4">
-			<img src="GOODLUCK.jpg" width="180" alt="GOODLUCK">
-			<img src="download (16).jfif" width="180" alt="Download">
-			<img src="RobloxScreenShot20260427_140358081.png" width="180" alt="Roblox">
-			<img src="bad-min-ton🏸.jfif" width="180" alt="Badminton">
+            <img src="images/mochiii.jfif" width="180" alt="Mochiii">
+			<img src="images/sims 4.jfif" width="180" alt="Sims 4">
+			<img src="images/GOODLUCK.jpg" width="180" alt="GOODLUCK">
+			<img src="images/download (16).jfif" width="180" alt="Download">
+			<img src="images/RobloxScreenShot20260427_140358081.png" width="180" alt="Roblox">
+			<img src="images/bad-min-ton🏸.jfif" width="180" alt="Badminton">
 			
             
         `;
@@ -502,32 +489,32 @@ else if (person === "max" && folder === "hobbies") {
     <div class="artist-grid">
 
         <div class="artist">
-            <img src="_seventeen_.jfif" alt="SEVENTEEN">
+            <img src="images/_seventeen_.jfif" alt="SEVENTEEN">
             <p>example lang</p>
         </div>
 
         <div class="artist">
-            <img src="Olivia%20Rodrigo.jfif" alt="Olivia Rodrigo">
+            <img src="images/Olivia%20Rodrigo.jfif" alt="Olivia Rodrigo">
             <p>example</p>
         </div>
 
         <div class="artist">
-            <img src="download%20(15).jfif" alt="CORTIS">
+            <img src="images/download%20(15).jfif" alt="CORTIS">
             <p>example</p>
         </div>
 
         <div class="artist">
-            <img src="malcolm%20todd.jfif" alt="Malcolm Todd">
+            <img src="images/malcolm%20todd.jfif" alt="Malcolm Todd">
             <p>example</p>
         </div>
     </div>
 </div>
-            <img src="mochiii.jfif" width="180" alt="Mochiii">
-			<img src="sims 4.jfif" width="180" alt="Sims 4">
-			<img src="GOODLUCK.jpg" width="180" alt="GOODLUCK">
-			<img src="download (16).jfif" width="180" alt="Download">
-			<img src="RobloxScreenShot20260427_140358081.png" width="180" alt="Roblox">
-			<img src="bad-min-ton🏸.jfif" width="180" alt="Badminton">
+            <img src="images/mochiii.jfif" width="180" alt="Mochiii">
+			<img src="images/sims 4.jfif" width="180" alt="Sims 4">
+			<img src="images/GOODLUCK.jpg" width="180" alt="GOODLUCK">
+			<img src="images/download (16).jfif" width="180" alt="Download">
+			<img src="images/RobloxScreenShot20260427_140358081.png" width="180" alt="Roblox">
+			<img src="images/bad-min-ton🏸.jfif" width="180" alt="Badminton">
 			
         `;
     }
